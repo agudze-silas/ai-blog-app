@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Signup</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-300 font-sans antialiased">
@@ -22,8 +22,15 @@
     <div class="flex items-center justify-center h-screen">
         <div class="bg-white p-8 shadow-md rounded-lg max-w-md w-full">
 
-            <!-- Login Form -->
-            <form action="" class="space-y-4">
+            <!-- Signup Form -->
+            <form action="" class="space-y-4" method="POST">
+                {% csrf_token %}
+                
+                {% if error_message %}
+                <div style="color: red; align-items: center;">
+                    <h2> {{ error_message }} </h2>
+                </div>
+                {% endif %}
                 <h2 class="text-xl font-semibold">Sign Up</h2>
                 <div>
                     <label for="username" class="block mb-1 font-medium">Username</label>
